@@ -32,13 +32,9 @@
             letter-spacing: 0.2px;
         }
         
-        main, .container {
-            flex: 1;
-        }
-
+        main, .container { flex: 1; }
         .container { max-width: 1250px; margin: auto; }
 
-        /* Titles and Header Badges */
         .page-header-title {
             color: var(--royal-blue);
             font-weight: 800;
@@ -53,7 +49,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Language Switcher */
         .lang-switch-btn {
             font-size: 1.05rem;
             font-weight: 700;
@@ -70,7 +65,6 @@
             transform: translateY(-1px);
         }
 
-        /* Form Card */
         .card-custom {
             background: #ffffff;
             border: none;
@@ -113,12 +107,6 @@
             font-weight: 700;
         }
 
-        .form-control:focus, .form-select:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
-        }
-
-        /* Buttons */
         .btn-calc {
             background: linear-gradient(90deg, #d97706 0%, #b45309 100%);
             border: none;
@@ -133,7 +121,6 @@
         .btn-calc:hover {
             background: linear-gradient(90deg, #b45309 0%, #92400e 100%);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.45);
             color: white;
         }
 
@@ -152,6 +139,42 @@
             background: linear-gradient(90deg, #172554 0%, #1e3a8a 100%);
             transform: translateY(-2px);
             color: #fff;
+        }
+
+        /* Panchanga Cards */
+        .panchanga-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 16px;
+            margin-top: 30px;
+        }
+        .panchanga-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.04);
+            border-top: 5px solid var(--royal-blue);
+        }
+        .panchanga-card .p-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .panchanga-card .p-value {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #1e3a8a;
+        }
+        .panchanga-card .p-sub {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #d97706;
+            margin-top: 4px;
         }
 
         /* Primary Data Table */
@@ -191,13 +214,6 @@
             color: var(--royal-blue);
             background: #f8fafc;
             border-right: 1px solid #e2e8f0;
-        }
-
-        .data-table tbody tr:nth-child(even) td {
-            background-color: #fbfcfe;
-        }
-        .data-table tbody tr:nth-child(even) td:first-child {
-            background-color: #f1f5f9;
         }
 
         .row-highlight {
@@ -248,7 +264,6 @@
             background: #ffffff;
         }
 
-        /* Sign Names */
         .cell b {
             font-size: 13px;
             font-weight: 800;
@@ -259,7 +274,6 @@
             z-index: 1;
         }
 
-        /* Planet Badges */
         .cell span {
             font-size: 15px;       
             font-weight: 800;
@@ -273,15 +287,14 @@
             white-space: nowrap;
         }
 
-        /* Specific Colors for Planet Chips */
-        .cell span.planet-su { background: #fee2e2; color: #991b1b; border-color: #fca5a5; } /* Sun / ര */
-        .cell span.planet-mo { background: #e0e7ff; color: #3730a3; border-color: #c7d2fe; } /* Moon / ച */
-        .cell span.planet-ma { background: #ffedd5; color: #9a3412; border-color: #fed7aa; } /* Mars / കൂ */
-        .cell span.planet-me { background: #dcfce7; color: #166534; border-color: #bbf7d0; } /* Mercury / ബു */
-        .cell span.planet-ju { background: #fef9c3; color: #854d0e; border-color: #fde047; } /* Jupiter / ഗു */
-        .cell span.planet-ve { background: #fce7f3; color: #9d174d; border-color: #fbcfe8; } /* Venus / ശു */
-        .cell span.planet-sa { background: #f1f5f9; color: #334155; border-color: #cbd5e1; } /* Saturn / മ */
-        .cell span.planet-ra, .cell span.planet-ke { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; } /* Nodes */
+        .cell span.planet-su { background: #fee2e2; color: #991b1b; border-color: #fca5a5; }
+        .cell span.planet-mo { background: #e0e7ff; color: #3730a3; border-color: #c7d2fe; }
+        .cell span.planet-ma { background: #ffedd5; color: #9a3412; border-color: #fed7aa; }
+        .cell span.planet-me { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+        .cell span.planet-ju { background: #fef9c3; color: #854d0e; border-color: #fde047; }
+        .cell span.planet-ve { background: #fce7f3; color: #9d174d; border-color: #fbcfe8; }
+        .cell span.planet-sa { background: #f1f5f9; color: #334155; border-color: #cbd5e1; }
+        .cell span.planet-ra, .cell span.planet-ke { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
         
         .cell .asc-label {
             background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%) !important;
@@ -305,10 +318,9 @@
             border: 2px solid #0f172a;
             padding: 8px;
             text-align: center;
-            letter-spacing: 0.5px;
         }
 
-        /* Dasha Section */
+        /* Dasha Section & Balance Box */
         .dasha-section { 
             background: #ffffff; 
             margin-top: 35px; 
@@ -317,10 +329,30 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.06);
             border-left: 6px solid #1e3a8a;
         }
-        .dasha-section h3 {
-            font-size: 1.6rem;
-            margin-bottom: 20px;
+        
+        .balance-dasha-badge {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 2px solid #f59e0b;
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
         }
+        .balance-dasha-badge .b-title {
+            color: #b45309;
+            font-weight: 800;
+            font-size: 1.3rem;
+        }
+        .balance-dasha-badge .b-value {
+            color: #1e3a8a;
+            font-weight: 800;
+            font-size: 1.4rem;
+        }
+
         details { 
             margin-left: 18px; 
             border-left: 2px solid #cbd5e1; 
@@ -334,30 +366,10 @@
             color: #1e293b;
             padding: 4px 0;
         }
-        summary:hover {
-            color: #1e3a8a;
-        }
 
-        /* Modal Enhancements */
-        .modal-content {
-            border-radius: 16px;
-            overflow: hidden;
-            border: none;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-        }
-        .modal-header {
-            background: linear-gradient(90deg, #1e3a8a 0%, #0f172a 100%);
-            padding: 20px 24px;
-        }
-        .modal-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        footer {
-            border-top: 3px solid #1e3a8a;
-            background: #ffffff;
-        }
+        .modal-content { border-radius: 16px; overflow: hidden; border: none; }
+        .modal-header { background: linear-gradient(90deg, #1e3a8a 0%, #0f172a 100%); padding: 20px 24px; }
+        footer { border-top: 3px solid #1e3a8a; background: #ffffff; }
     </style>
 </head>
 <body>
@@ -422,7 +434,38 @@
         </div>
     </div>
 
-    <!-- Planet Ephemeris Table -->
+    <!-- PANCHANGA SECTION -->
+    <div id="panchangaArea" class="container mt-4" style="display:none;">
+        <div class="panchanga-container">
+            <div class="panchanga-card">
+                <div class="p-title" id="pTitleVara">വാരം (Weekday)</div>
+                <div class="p-value" id="pVara">-</div>
+                <div class="p-sub" id="pSubVara"></div>
+            </div>
+            <div class="panchanga-card">
+                <div class="p-title" id="pTitleNak">നക്ഷത്രം (Nakshatra)</div>
+                <div class="p-value" id="pNak">-</div>
+                <div class="p-sub" id="pSubNak"></div>
+            </div>
+            <div class="panchanga-card">
+                <div class="p-title" id="pTitleTithi">തിഥി (Tithi)</div>
+                <div class="p-value" id="pTithi">-</div>
+                <div class="p-sub" id="pSubTithi"></div>
+            </div>
+            <div class="panchanga-card">
+                <div class="p-title" id="pTitleYoga">നിത്യയോഗം (Yoga)</div>
+                <div class="p-value" id="pYoga">-</div>
+                <div class="p-sub" id="pSubYoga"></div>
+            </div>
+            <div class="panchanga-card">
+                <div class="p-title" id="pTitleKarana">കരണം (Karana)</div>
+                <div class="p-value" id="pKarana">-</div>
+                <div class="p-sub" id="pSubKarana"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ephemeris Table -->
     <table class="data-table" id="posTable" style="display:none;">
         <thead>
             <tr>
@@ -434,16 +477,21 @@
         <tbody></tbody>
     </table>
 
-    <!-- Grid Charts Area -->
     <div class="charts-container" id="chartsArea"></div>
     
-    <!-- Vimshottari Dasha Section -->
+    <!-- DASHA SECTION -->
     <div id="dashaArea" class="dasha-section" style="display:none;">
         <h3 id="dashaHeader" class="text-primary fw-bold">വിംശോത്തരി ദശ (പ്രാണദശ വരെ)</h3>
+        
+        <!-- Balance of Dasha Highlight Badge -->
+        <div class="balance-dasha-badge">
+            <div class="b-title" id="lblBalanceDasha">ജനന ശിഷ്ടദശ (Balance Dasha):</div>
+            <div class="b-value" id="balanceDashaText">-</div>
+        </div>
+
         <div id="dashaContent"></div>
     </div>
     
-    <!-- Modal Trigger -->
     <div class="text-center my-5">
         <button type="button" class="btn btn-varga" id="btnVargaModal" data-bs-toggle="modal" data-bs-target="#vargaModal" onclick="updateVargaDisplay()">
             വർഗ്ഗ ചാർട്ട് വിശകലനം
@@ -498,7 +546,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <footer class="pt-4 pb-3 mt-5 w-100">
@@ -550,6 +597,10 @@ const I18N = {
         thTropical: "സായന സ്ഫുടം (Sayana)",
         thSidereal: "നിരയന സ്ഫുടം (Nirayana)",
         dashaHeader: "വിംശോത്തരി ദശ (പ്രാണദശ വരെ)",
+        lblBalanceDasha: "ജനന ശിഷ്ടദശ (Balance Dasha):",
+        yearsText: "വർഷം",
+        monthsText: "മാസം",
+        daysText: "ദിവസം",
         btnVargaModal: "വർഗ്ഗ ചാർട്ട് വിശകലനം",
         vargaModalLabel: "വർഗ്ഗ ചാർട്ട് വിശകലനം (Divisional Charts)",
         lblSelectVarga: "വർഗ്ഗ ചാർട്ട് തിരഞ്ഞെടുക്കുക:",
@@ -560,20 +611,29 @@ const I18N = {
         btnClose: "അടയ്ക്കുക",
         footerPowered: "വേദിക് ജ്യോതിഷ ഗണിത എഞ്ചിൻ | Powered by Swiss Ephemeris",
         alertCalcFirst: "ദയവായി ആദ്യം ജാതകം കണക്കുകൂട്ടുക!",
-        signs: ["മേടം", "ഇടവം", "മിഥുനം", "കർക്കിടകം", "ചിങ്ങം", "കന്നി", "തുലാം", "വൃശ്ചികം", "ധനു", "മകരം", "കുംഭം", "മീനം"],
+        pTitleVara: "വാരം (Weekday)",
+        pTitleNak: "നക്ഷത്രം (Nakshatra)",
+        pTitleTithi: "തിഥി (Tithi)",
+        pTitleYoga: "നിത്യയോഗം (Yoga)",
+        pTitleKarana: "കരണം (Karana)",
+        pada: "പാദം",
+        shukla: "ശുക്ലപക്ഷ",
+        krishna: "കൃഷ്ണപക്ഷ",
+        signs: ["മേടം", "ഇടവം", "മിഥുനം", "കർക്ക", "ചിങ്ങം", "കന്നി", "തുലാം", "വൃശ്ചി", "ധനു", "മകരം", "കുംഭം", "മീനം"],
         planets: {
             "Su": "സൂര്യൻ", "Mo": "ചന്ദ്രൻ", "Me": "ബുധൻ", "Ve": "ശുക്രൻ", 
             "Ma": "ചൊവ്വ", "Ju": "വ്യാഴം", "Sa": "ശനി", "Ra": "രാഹു", "Ke": "കേതു", "Asc": "ലഗ്നം"
         },
         chartPlanets: {
             "Su": "ര", "Mo": "ച", "Me": "ബു", "Ve": "ശു", 
-            "Ma": "കു", "Ju": "ഗു", "Sa": "മ", "Ra": "രാ", "Ke": "കേ", "Asc": "ല"
+            "Ma": "കൂ", "Ju": "ഗു", "Sa": "മ", "Ra": "രാ", "Ke": "കേ", "Asc": "ല"
         },
         vargaTitles: {
             "D1": "D1 - രാശി", "D7": "D7 - സപ്താംശം", "D9": "D9 - നവാംശം", 
             "D10": "D10 - ദശാംശം", "D12": "D12 - ദ്വാദശാംശം", "D30": "D30 - ത്രിംശാംശം"
         },
         dashaLords: ["കേതു", "ശുക്രൻ", "സൂര്യൻ", "ചന്ദ്രൻ", "ചൊവ്വ", "രാഹു", "വ്യാഴം", "ശനി", "ബുധൻ"],
+        weekdays: ["ഞായർ", "തിങ്കൾ", "ചൊവ്വ", "ബുധൻ", "വ്യാഴം", "വെള്ളി", "ശനി"],
         spicaName: "ചിത്തിര (Spica)",
         ascName: "ലഗ്നം (Ascendant)",
         ayanName: "അയനാംശം (Ayanamsa)",
@@ -581,6 +641,22 @@ const I18N = {
             "അശ്വതി", "ഭരണി", "കാർത്തിക", "രോഹിണി", "മകയിരം", "തിരുവാതിര", "പുണർതം", "പൂയം", "ആയില്യം",
             "മകം", "പൂരം", "ഉത്രം", "അത്തം", "ചിത്തിര", "ചോതി", "വിശാഖം", "അനിഴം", "തൃക്കേട്ട",
             "മൂലം", "പൂരാടം", "ഉത്രാടം", "തിരുവോണം", "അവിട്ടം", "ചതയം", "പൂരുരുട്ടാതി", "ഉത്രട്ടാതി", "രേവതി"
+        ],
+        tithis: [
+            "പ്രഥമ", "ദ്വിതീയ", "തൃതീയ", "ചതുർത്ഥി", "പഞ്ചമി", "ഷഷ്ഠി", "സപ്തമി", "അഷ്ടമി", 
+            "നവമി", "ദശമി", "ഏകാദശി", "ദ്വാദശി", "ത്രയോദശി", "ചതുർദ്ദശി", "പൗർണ്ണമി",
+            "പ്രഥമ", "ദ്വിതീയ", "തൃതീയ", "ചതുർത്ഥി", "പഞ്ചമി", "ഷഷ്ഠി", "സപ്തമി", "അഷ്ടമി", 
+            "നവമി", "ദശമി", "ഏകാദശി", "ദ്വാദശി", "ത്രയോദശി", "ചതുർദ്ദശി", "അമാവാസി"
+        ],
+        yogas: [
+            "വിഷ്കംഭം", "പ്രീതി", "ആയുഷ്മാൻ", "സൗഭാഗ്യം", "ശോഭനം", "അതിഗണ്ഡം", "സുകർമ്മം", "ധൃതി", 
+            "ശൂലം", "ഗണ്ഡം", "വൃദ്ധി", "ധ്രുവം", "വ്യാഘാതം", "ഹർഷണം", "വജ്രം", "സിദ്ധി", 
+            "വ്യതീപാതം", "വരീയാൻ", "പരിഘം", "ശിവം", "സിദ്ധം", "സാദ്ധ്യം", "ശുഭം", "ശുക്ലം", 
+            "ബ്രഹ്മം", "ഐന്ദ്രം", "വൈധൃതി"
+        ],
+        karanas: [
+            "ബവ", "ബാലവ", "കൗലവ", "തൈതുല", "ഗരജ", "വണിജ", "വിഷ്ടി",
+            "ശകുനി", "ചതുഷ്പാദ്", "നാഗവം", "കിംസ്തുഘ്നം"
         ]
     },
     en: {
@@ -601,6 +677,10 @@ const I18N = {
         thTropical: "Tropical (Sayana)",
         thSidereal: "Sidereal (Nirayana)",
         dashaHeader: "Vimśottarī Daśā (Expanding to Prāṇa)",
+        lblBalanceDasha: "Balance of Dasha at Birth:",
+        yearsText: "Years",
+        monthsText: "Months",
+        daysText: "Days",
         btnVargaModal: "Varga Analysis",
         vargaModalLabel: "Divisional (Varga) Chart Analysis",
         lblSelectVarga: "Select Divisional Chart:",
@@ -611,6 +691,14 @@ const I18N = {
         btnClose: "Close",
         footerPowered: "Vedic Astrology Calculation Engine | Powered by Swiss Ephemeris",
         alertCalcFirst: "Please calculate the horoscope first!",
+        pTitleVara: "Vara (Weekday)",
+        pTitleNak: "Nakshatra (Star)",
+        pTitleTithi: "Tithi (Lunar Day)",
+        pTitleYoga: "Yoga (Solilunar)",
+        pTitleKarana: "Karana (Half-Tithi)",
+        pada: "Pada",
+        shukla: "Shukla Paksha",
+        krishna: "Krishna Paksha",
         signs: ["Ar", "Ta", "Ge", "Cn", "Le", "Vi", "Li", "Sc", "Sg", "Cp", "Aq", "Pi"],
         planets: {
             "Su": "Sun", "Mo": "Moon", "Me": "Mercury", "Ve": "Venus", 
@@ -625,6 +713,7 @@ const I18N = {
             "D10": "D10 Dashamsha", "D12": "D12 Dwadashamsha", "D30": "D30 Trimshamsha"
         },
         dashaLords: ["Ketu", "Venus", "Sun", "Moon", "Mars", "Rahu", "Jupiter", "Saturn", "Mercury"],
+        weekdays: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         spicaName: "Chithra (Spica)",
         ascName: "Ascendant",
         ayanName: "Ayanamsa",
@@ -632,6 +721,22 @@ const I18N = {
             "Ashwini", "Bharani", "Krittika", "Rohini", "Mrigashira", "Ardra", "Punarvasu", "Pushya", "Ashlesha",
             "Magha", "P.Phalguni", "U.Phalguni", "Hasta", "Chitra", "Swati", "Vishakha", "Anuradha", "Jyeshtha",
             "Mula", "P.Ashadha", "U.Ashadha", "Shravana", "Dhanishta", "Shatabhisha", "P.Bhadra", "U.Bhadra", "Revati"
+        ],
+        tithis: [
+            "Prathama", "Dvitiya", "Tritiya", "Chaturthi", "Panchami", "Shashthi", "Saptami", "Ashtami", 
+            "Navami", "Dashami", "Ekadashi", "Dvadashi", "Trayodashi", "Chaturdashi", "Purnima",
+            "Prathama", "Dvitiya", "Tritiya", "Chaturthi", "Panchami", "Shashthi", "Saptami", "Ashtami", 
+            "Navami", "Dashami", "Ekadashi", "Dvadashi", "Trayodashi", "Chaturdashi", "Amavasya"
+        ],
+        yogas: [
+            "Vishkambha", "Priti", "Ayushman", "Saubhagya", "Shobhana", "Atiganda", "Sukarma", "Dhriti", 
+            "Shula", "Ganda", "Vriddhi", "Dhruva", "Vyaghata", "Harshana", "Vajra", "Siddhi", 
+            "Vyatipata", "Variyan", "Parigha", "Shiva", "Siddha", "Sadhya", "Shubha", "Shukla", 
+            "Brahma", "Indra", "Vaidhriti"
+        ],
+        karanas: [
+            "Bava", "Balava", "Kaulava", "Taitila", "Gara", "Vanija", "Vishti",
+            "Shakuni", "Chatushpada", "Naga", "Kimstughna"
         ]
     }
 };
@@ -665,10 +770,16 @@ function applyStaticLanguage() {
     document.getElementById("lblLatDeg").innerText = l.deg;
     document.getElementById("lblLatMin").innerText = l.min;
     document.getElementById("btnCalculate").innerText = l.btnCalc;
+    document.getElementById("pTitleVara").innerText = l.pTitleVara;
+    document.getElementById("pTitleNak").innerText = l.pTitleNak;
+    document.getElementById("pTitleTithi").innerText = l.pTitleTithi;
+    document.getElementById("pTitleYoga").innerText = l.pTitleYoga;
+    document.getElementById("pTitleKarana").innerText = l.pTitleKarana;
     document.getElementById("thBody").innerText = l.thBody;
     document.getElementById("thTropical").innerText = l.thTropical;
     document.getElementById("thSidereal").innerText = l.thSidereal;
     document.getElementById("dashaHeader").innerText = l.dashaHeader;
+    document.getElementById("lblBalanceDasha").innerText = l.lblBalanceDasha;
     document.getElementById("btnVargaModal").innerText = l.btnVargaModal;
     document.getElementById("vargaModalLabel").innerText = l.vargaModalLabel;
     document.getElementById("lblSelectVarga").innerText = l.lblSelectVarga;
@@ -698,14 +809,11 @@ function getAscendant(jd, lat, lon) {
     const d2r = Math.PI / 180, r2d = 180 / Math.PI;
     const T = (jd - 2451545) / 36525;
     const eps = (23 + 26/60 + 21.448/3600) - (46.815/3600) * T;
-    
     let GMST = 280.46061837 + 360.98564736629 * (jd - 2451545);
     let ramc = ((GMST + lon) % 360 + 360) % 360;
     let LST = ramc * d2r;
-    
     const x = -Math.sin(LST) * Math.cos(eps * d2r) - Math.tan(lat * d2r) * Math.sin(eps * d2r);
     const y = Math.cos(LST);
-    
     let asc = Math.atan2(y, x) * r2d;
     return (asc + 360) % 360;
 }
@@ -754,14 +862,30 @@ const Div = {
 
 const YEARS = [7, 20, 6, 10, 7, 18, 16, 19, 17];
 
+/* ==================== 5-LEVEL DASHA & BALANCE DASHA ==================== */
 function buildDasha(moonPos, birthJD) {
     const SIDEREAL_YEAR = 365.256363;
     const nakLen = 13.33333333;
     const lordIdx = Math.floor(moonPos / nakLen) % 9;
-    const rem = 1 - ((moonPos % nakLen) / nakLen);
     
-    let sJD = birthJD - ((1 - rem) * YEARS[lordIdx] * SIDEREAL_YEAR);
-    const lords = I18N[currentLang].dashaLords;
+    // Balance / Sishata Dasha fraction
+    const remFrac = 1 - ((moonPos % nakLen) / nakLen);
+    
+    // Balance Dasha Breakdown (Years, Months, Days)
+    const dict = I18N[currentLang];
+    const totalBalanceYears = remFrac * YEARS[lordIdx];
+    const bYears = Math.floor(totalBalanceYears);
+    const totalBalanceMonths = (totalBalanceYears - bYears) * 12;
+    const bMonths = Math.floor(totalBalanceMonths);
+    const bDays = Math.round((totalBalanceMonths - bMonths) * 30);
+
+    const lordName = dict.dashaLords[lordIdx];
+    document.getElementById("balanceDashaText").innerText = 
+        `${lordName} - ${bYears} ${dict.yearsText} ${bMonths} ${dict.monthsText} ${bDays} ${dict.daysText}`;
+
+    // Start JD of the active cycle
+    let sJD = birthJD - ((1 - remFrac) * YEARS[lordIdx] * SIDEREAL_YEAR);
+    const lords = dict.dashaLords;
     
     const gen = (start, dur, level, idx) => {
         if (level > 4) return "";
@@ -774,7 +898,7 @@ function buildDasha(moonPos, birthJD) {
             const cIdx = (idx + i) % 9;
             const days = dur * (YEARS[cIdx] / 120);
             
-            // Format strictly to DD-MM-YYYY
+            // Format to DD-MM-YYYY
             const dObj = new Date((cur - 2440587.5) * 86400000);
             const dd = String(dObj.getDate()).padStart(2, '0');
             const mm = String(dObj.getMonth() + 1).padStart(2, '0');
@@ -791,6 +915,63 @@ function buildDasha(moonPos, birthJD) {
     };
 
     return gen(sJD, 120 * SIDEREAL_YEAR, 0, lordIdx);
+}
+
+/* ==================== PANCHANGA CALCULATION ENGINE ==================== */
+function calculatePanchanga(jd, sSun, sMoon) {
+    const dict = I18N[currentLang];
+    
+    // 1. Vara (Weekday)
+    const dayOfWeek = Math.floor(jd + 1.5) % 7;
+    const varaName = dict.weekdays[dayOfWeek];
+
+    // 2. Nakshatra & Pada
+    const nakLen = 360 / 27;
+    const nakIdx = Math.floor(sMoon / nakLen);
+    const nakName = dict.nakshatras[nakIdx];
+    const pada = Math.floor((sMoon % nakLen) / (nakLen / 4)) + 1;
+    const nakRemPercent = (((nakLen - (sMoon % nakLen)) / nakLen) * 100).toFixed(1);
+
+    // 3. Tithi
+    let diff = (sMoon - sSun + 360) % 360;
+    const tithiIdx = Math.floor(diff / 12);
+    const tithiName = dict.tithis[tithiIdx];
+    const paksha = tithiIdx < 15 ? dict.shukla : dict.krishna;
+    const tithiElapsed = (((diff % 12) / 12) * 100).toFixed(1);
+
+    // 4. Yoga
+    const sumDeg = (sSun + sMoon) % 360;
+    const yogaIdx = Math.floor(sumDeg / (360 / 27));
+    const yogaName = dict.yogas[yogaIdx];
+
+    // 5. Karana
+    let karanaIdx = Math.floor(diff / 6);
+    let karanaName = "";
+    if (karanaIdx === 0) {
+        karanaName = dict.karanas[10];
+    } else if (karanaIdx >= 57) {
+        karanaName = dict.karanas[7 + (karanaIdx - 57)];
+    } else {
+        karanaName = dict.karanas[(karanaIdx - 1) % 7];
+    }
+
+    // Update DOM
+    document.getElementById("pVara").innerText = varaName;
+    document.getElementById("pSubVara").innerText = "";
+    
+    document.getElementById("pNak").innerText = `${nakName}`;
+    document.getElementById("pSubNak").innerText = `${dict.pada} ${pada} (${nakRemPercent}% rem)`;
+    
+    document.getElementById("pTithi").innerText = `${paksha} ${tithiName}`;
+    document.getElementById("pSubTithi").innerText = `${tithiElapsed}% elapsed`;
+    
+    document.getElementById("pYoga").innerText = yogaName;
+    document.getElementById("pSubYoga").innerText = `${(yogaIdx + 1)} / 27`;
+    
+    document.getElementById("pKarana").innerText = karanaName;
+    document.getElementById("pSubKarana").innerText = `${(karanaIdx + 1)} / 60`;
+
+    document.getElementById("panchangaArea").style.display = "block";
 }
 
 const SMAP = [11, 0, 1, 2, 10, null, null, 3, 9, null, null, 4, 8, 7, 6, 5];
@@ -875,7 +1056,9 @@ window.mainCalculation = () => {
     const charts = { D1:{}, D9:{}, D30:{}, D10:{}, D7:{}, D12:{} };
     const tb = document.querySelector("#posTable tbody"); 
     tb.innerHTML = "";
+    
     let mSid = 0;    
+    let sSid = 0;
 
     const dict = I18N[currentLang];
 
@@ -898,6 +1081,7 @@ window.mainCalculation = () => {
         charts.D30[n] = Div.D30(s); 
         
         if (n === "Mo") mSid = s;
+        if (n === "Su") sSid = s;
     });
 
     const ascT = getAscendant(jd, lat, lon);
@@ -919,10 +1103,15 @@ window.mainCalculation = () => {
     document.getElementById("posTable").style.display = "table";
     document.getElementById("chartsArea").innerHTML = "";
     Object.keys(charts).forEach(k => drawChart("chartsArea", charts[k], k));
+    
+    // Dasha & Balance Dasha
     document.getElementById("dashaArea").style.display = "block";
     document.getElementById("dashaContent").innerHTML = buildDasha(mSid, jd);
 
-    lastCalcResults = { jd, ayan, lat, lon };
+    // Compute Panchanga
+    calculatePanchanga(jd, sSid, mSid);
+
+    lastCalcResults = { jd, ayan, lat, lon, sSid, mSid };
 };
 
 const getNak = (long) => I18N[currentLang].nakshatras[Math.floor((long % 360) / (360/27))];
