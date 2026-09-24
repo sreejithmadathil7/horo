@@ -1,311 +1,684 @@
 <!DOCTYPE html>
-<!-- saved from url=(0064)file:///G:/HORO/Ayanamsa%20Research/New%20folder/sreechakra.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <title>SREE CHAKRA - The Real Chithra Ayanamsa Horoscope </title>
-    <link href="./SREE CHAKRA - The Real Chithra Ayanamsa Horoscope_files/bootstrap.min.css" rel="stylesheet">
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="docTitle">ശ്രീ ചക്ര - ചിത്രാ അയനാംശ ജാതകം | SREE CHAKRA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Arial; 
-        background:#f0f2f5; padding:20px; color: #333; 
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;}
+        :root {
+            --primary-navy: #0f172a;
+            --royal-blue: #1e3a8a;
+            --accent-gold: #d97706;
+            --accent-gold-light: #fef3c7;
+            --crimson-red: #b91c1c;
+            --card-bg: #ffffff;
+            --body-bg: #f1f5f9;
+            --border-color: #cbd5e1;
+        }
+
+        body { 
+            font-family: 'Manjari', 'Outfit', 'Segoe UI', Arial, sans-serif; 
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 24px; 
+            color: #1e293b; 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-size: 19px;
+            letter-spacing: 0.2px;
+        }
         
         main, .container {
             flex: 1;
         }
 
-        footer {
-            border-top: 3px solid #2f5ab1; /* Adds a nice blue accent line */
-        }
-        .container { max-width: 1200px; margin: auto; }
-        .form { 
-            background:#fff; padding:20px; border-radius:8px; 
-            display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-            gap:15px; box-shadow:0 4px 15px rgba(0,0,0,0.1); 
+        .container { max-width: 1250px; margin: auto; }
+
+        /* Titles and Header Badges */
+        .page-header-title {
+            color: var(--royal-blue);
+            font-weight: 800;
+            font-size: 2.7rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.06);
         }
 
-        button { grid-column: 1 / -1; padding:12px; background:#1a2a6c; color:white; border:none; border-radius:4px; cursor:pointer; font-weight:bold; }
-        .data-table { width: 100%; margin-top: 20px; border-collapse: collapse; background: white; font-size: 14px; }
-        .data-table th, .data-table td { border: 1px solid #ddd; padding: 8px; text-align: center; }
-        .data-table th { background: #1a2a6c; color: white; }
+        .page-sub-title {
+            color: var(--crimson-red);
+            font-weight: 700;
+            font-size: 1.35rem;
+            letter-spacing: 0.5px;
+        }
 
-        /* Chart Styling */
-        .charts-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top:30px; }
+        /* Language Switcher */
+        .lang-switch-btn {
+            font-size: 1.05rem;
+            font-weight: 700;
+            border-radius: 8px;
+            padding: 8px 18px;
+            background: #ffffff;
+            color: var(--royal-blue);
+            border: 2px solid var(--royal-blue);
+            transition: all 0.2s ease-in-out;
+        }
+        .lang-switch-btn:hover {
+            background: var(--royal-blue);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        /* Form Card */
+        .card-custom {
+            background: #ffffff;
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+        }
+
+        .card-custom .card-header {
+            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 16px 24px;
+            border: none;
+        }
+
+        .card-custom .card-header h4 {
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .form-label {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+
+        .form-control, .form-select, .input-group-text {
+            font-size: 1.15rem;
+            font-weight: 600;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1.5px solid #cbd5e1;
+        }
+
+        .input-group-text {
+            background-color: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+        }
+
+        /* Buttons */
+        .btn-calc {
+            background: linear-gradient(90deg, #d97706 0%, #b45309 100%);
+            border: none;
+            color: white;
+            font-size: 1.35rem;
+            font-weight: 800;
+            border-radius: 10px;
+            padding: 14px 40px;
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.35);
+            transition: all 0.2s ease;
+        }
+        .btn-calc:hover {
+            background: linear-gradient(90deg, #b45309 0%, #92400e 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.45);
+            color: white;
+        }
+
+        .btn-varga {
+            background: linear-gradient(90deg, #1e3a8a 0%, #1e40af 100%);
+            border: none;
+            color: #fff;
+            font-size: 1.35rem;
+            font-weight: 800;
+            border-radius: 10px;
+            padding: 14px 38px;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+            transition: all 0.2s ease;
+        }
+        .btn-varga:hover {
+            background: linear-gradient(90deg, #172554 0%, #1e3a8a 100%);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        /* Primary Data Table */
+        .data-table { 
+            width: 100%; 
+            margin: 35px 0; 
+            border-collapse: separate; 
+            border-spacing: 0;
+            background: white; 
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            font-size: 1.2rem; 
+        }
+
+        .data-table th { 
+            background: #1e3a8a; 
+            color: #ffffff; 
+            padding: 16px; 
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+            border: none;
+        }
+
+        .data-table td { 
+            border-top: 1px solid #e2e8f0; 
+            padding: 14px 16px; 
+            text-align: center; 
+            font-weight: 700; 
+            color: #1e293b;
+        }
+
+        .data-table td:first-child {
+            font-weight: 800;
+            color: var(--royal-blue);
+            background: #f8fafc;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .data-table tbody tr:nth-child(even) td {
+            background-color: #fbfcfe;
+        }
+        .data-table tbody tr:nth-child(even) td:first-child {
+            background-color: #f1f5f9;
+        }
+
+        .row-highlight {
+            background-color: #fef3c7 !important;
+            border-top: 2px solid #f59e0b !important;
+            border-bottom: 2px solid #f59e0b !important;
+        }
+        .row-highlight td {
+            color: #b45309 !important;
+            font-weight: 800 !important;
+            font-size: 1.25rem;
+        }
+
+        /* Chart Components */
+        .charts-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; margin-top: 35px; }
         
         .chart-box { 
-                    background: white; 
-                    padding: 15px; 
-                    border-radius: 12px; 
-                    border: 1px solid #ddd; 
-                    width: 380px; /* Increased from 300px to fit the new 360px grid + padding */
-                    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-                }
-        .chart-title { text-align: center; font-weight: bold; margin-bottom: 10px; color: #1a2a6c; }     
+            background: #ffffff; 
+            padding: 18px; 
+            border-radius: 16px; 
+            border: 2px solid #cbd5e1; 
+            width: 400px; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
 
-               
-                .chart { 
-                    display: grid; 
-                    grid-template-columns: repeat(4, 1fr); 
-                    grid-template-rows: repeat(4, 110px); 
-                    border: 3px solid #000; 
-                    width: 360px; 
-                    margin: 20px auto;
-                    background: #fff;
-                }
+        .chart { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            grid-template-rows: repeat(4, 115px); 
+            border: 3px solid #0f172a; 
+            width: 364px; 
+            margin: 10px auto;
+            background: #ffffff;
+            border-radius: 6px;
+            overflow: hidden;
+        }
 
-                /*New Code */
-                /* 2. Cells - Using Flex Wrap to handle high planet density */
-                    .cell { 
-                        border: 1px solid #444; 
-                        padding: 18px 2px 2px 2px; /* Top padding reserved for the absolute Sign label */
-                        display: flex; 
-                        flex-direction: row; 
-                        flex-wrap: wrap;       /* Planets will wrap to next line automatically */
-                        align-content: flex-start; 
-                        justify-content: center;
-                        overflow: hidden;
-                        position: relative;    /* Needed for absolute positioning of the Sign */
-                    }
+        .cell { 
+            border: 1px solid #475569; 
+            padding: 24px 2px 2px 2px;
+            display: flex; 
+            flex-direction: row; 
+            flex-wrap: wrap;       
+            align-content: flex-start; 
+            justify-content: center;
+            overflow: hidden;
+            position: relative;    
+            background: #ffffff;
+        }
 
-                    /* 3. Planets - Bold and consistent size */
-                    .cell span {
-                        font-size: 14px;       /* Fixed size as requested */
-                        font-weight: 800;
-                        color: #000;
-                        margin: 2px;
-                        padding: 1px 3px;
-                        background: #f0f0f0;   /* Light background for better contrast */
-                        border-radius: 3px;
-                        line-height: 1.2;
-                    }
+        /* Sign Names */
+        .cell b {
+            font-size: 13px;
+            font-weight: 800;
+            color: #64748b;
+            position: absolute;
+            top: 2px;
+            left: 5px;
+            z-index: 1;
+        }
 
-                    /* 4. Signs - Absolutely positioned so they don't block planets */
-                    .cell b {
-                        font-size: 10px;
-                        font-weight: 900;
-                        color: #999;
-                        text-transform: uppercase;
-                        position: absolute;
-                        top: 2px;
-                        left: 4px;
-                        z-index: 1;
-                    }
+        /* Planet Badges */
+        .cell span {
+            font-size: 15px;       
+            font-weight: 800;
+            color: #0f172a;
+            margin: 2px;
+            padding: 2px 6px;
+            background: #e2e8f0;   
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
 
-                    /* 5. Ascendant - Highlighted */
-                    .cell .asc-label {
-                        background: #d35400;
-                        color: #fff;
-                        border-bottom: none;
-                    }
+        /* Specific Colors for Planet Chips */
+        .cell span.planet-su { background: #fee2e2; color: #991b1b; border-color: #fca5a5; } /* Sun / ര */
+        .cell span.planet-mo { background: #e0e7ff; color: #3730a3; border-color: #c7d2fe; } /* Moon / ച */
+        .cell span.planet-ma { background: #ffedd5; color: #9a3412; border-color: #fed7aa; } /* Mars / കൂ */
+        .cell span.planet-me { background: #dcfce7; color: #166534; border-color: #bbf7d0; } /* Mercury / ബു */
+        .cell span.planet-ju { background: #fef9c3; color: #854d0e; border-color: #fde047; } /* Jupiter / ഗു */
+        .cell span.planet-ve { background: #fce7f3; color: #9d174d; border-color: #fbcfe8; } /* Venus / ശു */
+        .cell span.planet-sa { background: #f1f5f9; color: #334155; border-color: #cbd5e1; } /* Saturn / മ */
+        .cell span.planet-ra, .cell span.planet-ke { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; } /* Nodes */
+        
+        .cell .asc-label {
+            background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%) !important;
+            color: #ffffff !important;
+            border: none !important;
+            font-size: 16px;
+            font-weight: 800;
+            box-shadow: 0 2px 4px rgba(234, 88, 12, 0.4);
+        }
 
-                 /*New Code */
-                /* 6. The Merged Center */
-                .cell.center { 
-                    grid-column: 2 / 4; 
-                    grid-row: 2 / 4; 
-                    background: #f4f4f4; 
-                    display: flex; 
-                    align-items: center; 
-                    justify-content: center; 
-                    font-size: 18px;      /* Very large D1, D9, etc. */
-                    font-weight: 900;
-                    color: #1a2a6c;
-                    border: 1px solid #444;
-                }
+        .cell.center { 
+            grid-column: 2 / 4; 
+            grid-row: 2 / 4; 
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 21px;      
+            font-weight: 800;
+            color: #1e3a8a;
+            border: 2px solid #0f172a;
+            padding: 8px;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
 
-            /* 1. Main Table Structure */
-                .data-table { 
-                    width: 100%; 
-                    margin: 30px 0; 
-                    border-collapse: collapse; 
-                    background: white; 
-                    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-                    font-size: 18px; /* Significantly larger base font */
-                }
+        /* Dasha Section */
+        .dasha-section { 
+            background: #ffffff; 
+            margin-top: 35px; 
+            padding: 24px; 
+            border-radius: 16px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            border-left: 6px solid #1e3a8a;
+        }
+        .dasha-section h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+        details { 
+            margin-left: 18px; 
+            border-left: 2px solid #cbd5e1; 
+            padding-left: 12px; 
+            margin-top: 8px;
+            font-size: 1.15rem;
+        }
+        summary { 
+            cursor: pointer; 
+            font-weight: 700; 
+            color: #1e293b;
+            padding: 4px 0;
+        }
+        summary:hover {
+            color: #1e3a8a;
+        }
 
-                /* 2. Header - High Contrast */
-                .data-table th { 
-                    background: #1a2a6c; 
-                    color: white; 
-                    padding: 15px; 
-                    font-weight: 900;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
-                    border: 1px solid #ddd;
-                }
+        /* Modal Enhancements */
+        .modal-content {
+            border-radius: 16px;
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .modal-header {
+            background: linear-gradient(90deg, #1e3a8a 0%, #0f172a 100%);
+            padding: 20px 24px;
+        }
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
 
-                /* 3. Cells - Bold and Spacious */
-                .data-table td { 
-                    border: 1px solid #ddd; 
-                    padding: 12px 15px; 
-                    text-align: center; 
-                    font-weight: 700; /* Bold numbers and text */
-                    color: #222;
-                }
-
-                /* 4. Body Name Column - Distinct Style */
-                .data-table td:first-child {
-                    font-weight: 900;
-                    color: #1a2a6c;
-                    background: #f8f9fa;
-                }
-
-                /* 5. Highlighted Rows (Ascendant/Ayanamsha) */
-                .asc-row { 
-                    background: #fff3e0 !important; /* Soft orange tint */
-                }
-
-                .asc-row td {
-                    color: #d35400 !important; /* Matches Chart Ascendant color */
-                    font-size: 20px; /* Even bigger for the Ascendant */
-                    border-top: 2px solid #d35400;
-                    border-bottom: 2px solid #d35400;
-                }
-
-                /* 6. Alternating Row Colors for Readability */
-                .data-table tbody tr:nth-child(even) {
-                    background-color: #fafafa;
-                }
-  
-                .dasha-section { background: white; margin-top: 30px; padding: 20px; border-radius: 8px; }
-                details { margin-left: 15px; border-left: 1px solid #eee; padding-left: 10px; }
+        footer {
+            border-top: 3px solid #1e3a8a;
+            background: #ffffff;
+        }
     </style>
 </head>
 <body>
 
 <div class="container-fluid">
-    <h1 class="text-primary text-center">SREE CHITHRA JATHAKA</h1>
-    <h5 class="text-danger text-center">Calculate Accurate Horoscope From AD 1900 - 2100</h5>
-    <div class="container mt-4">
-    <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
-            <h5 class="mb-0">Birth Details</h5>
-        </div>
-        <div class="card-body">
-            <div class="row g-3">
-                <div class="col-md-4 col-sm-6">
-                    <label class="form-label fw-bold">Date</label>
-                    <input type="date" id="dob" class="form-control" value="1981-07-07">
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <label class="form-label fw-bold">Time</label>
-                    <input type="time" step="1" id="time" class="form-control" value="04:35:00">
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <label class="form-label fw-bold">Timezone (TZ)</label>
-                    <input id="tz" class="form-control" value="5.5" placeholder="e.g. 5.5">
-                </div>
+    <div class="d-flex justify-content-end mb-3">
+        <button id="langToggleBtn" class="btn lang-switch-btn shadow-sm" onclick="toggleLanguage()">
+            English Version
+        </button>
+    </div>
 
-                <div class="col-md-6">
-                    <label class="form-label fw-bold">Longitude (Deg / Min)</label>
-                    <div class="input-group">
-                        <span class="input-group-text">Deg</span>
-                        <input id="lonDeg" type="number" class="form-control" value="76">
-                        <span class="input-group-text">Min</span>
-                        <input id="lonMin" type="number" class="form-control" value="35">
+    <h1 class="page-header-title text-center" id="mainHeading">ശ്രീ ചിത്രാ ജാതകം</h1>
+    <h5 class="page-sub-title text-center mb-4" id="subHeading">കൃത്യമായ ജാതക ഗണിതം: ക്രി.വ 1900 - 2100 വരെ</h5>
+
+    <div class="container mt-2">
+        <div class="card card-custom">
+            <div class="card-header">
+                <h4 id="cardTitle">ജനന വിവരങ്ങൾ</h4>
+            </div>
+            <div class="card-body p-4">
+                <div class="row g-4">
+                    <div class="col-md-4 col-sm-6">
+                        <label class="form-label" id="lblDate">തീയതി (Date)</label>
+                        <input type="date" id="dob" class="form-control" value="1981-07-07">
                     </div>
-                </div>
-
-                <div class="col-md-6">
-                    <label class="form-label fw-bold">Latitude (Deg / Min)</label>
-                    <div class="input-group">
-                        <span class="input-group-text">Deg</span>
-                        <input id="latDeg" type="number" class="form-control" value="9">
-                        <span class="input-group-text">Min</span>
-                        <input id="latMin" type="number" class="form-control" value="11">
+                    <div class="col-md-4 col-sm-6">
+                        <label class="form-label" id="lblTime">സമയം (Time)</label>
+                        <input type="time" step="1" id="time" class="form-control" value="04:35:00">
                     </div>
-                </div>
+                    <div class="col-md-4 col-sm-12">
+                        <label class="form-label" id="lblTz">ടൈംസോൺ (TZ)</label>
+                        <input id="tz" class="form-control" value="5.5" placeholder="e.g. 5.5">
+                    </div>
 
-                <div class="col-12 text-center mt-3">
-                    <button class="btn btn-primary btn-lg px-5 shadow-sm" onclick="mainCalculation()">
-                        Calculate Full Horoscope
-                    </button>
+                    <div class="col-md-6">
+                        <label class="form-label" id="lblLon">രേഖാംശം (Longitude - ഡിഗ്രി / മിനിറ്റ്)</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="lblLonDeg">ഡിഗ്രി</span>
+                            <input id="lonDeg" type="number" class="form-control" value="76">
+                            <span class="input-group-text" id="lblLonMin">മിനിറ്റ്</span>
+                            <input id="lonMin" type="number" class="form-control" value="35">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label" id="lblLat">അക്ഷാംശം (Latitude - ഡിഗ്രി / മിനിറ്റ്)</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="lblLatDeg">ഡിഗ്രി</span>
+                            <input id="latDeg" type="number" class="form-control" value="9">
+                            <span class="input-group-text" id="lblLatMin">മിനിറ്റ്</span>
+                            <input id="latMin" type="number" class="form-control" value="11">
+                        </div>
+                    </div>
+
+                    <div class="col-12 text-center mt-4">
+                        <button class="btn btn-calc" id="btnCalculate" onclick="mainCalculation()">
+                            ജാതകം ഗണിക്കുക
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
+    <!-- Planet Ephemeris Table -->
     <table class="data-table" id="posTable" style="display:none;">
-        <thead><tr><th>Body</th><th>Tropical (Sayana)</th><th>Sidereal (Nirayana)</th></tr></thead>
+        <thead>
+            <tr>
+                <th id="thBody">ഗ്രഹം / ബിന്ദു</th>
+                <th id="thTropical">സായന സ്ഫുടം (Sayana)</th>
+                <th id="thSidereal">നിരയന സ്ഫുടം (Nirayana)</th>
+            </tr>
+        </thead>
         <tbody></tbody>
     </table>
 
+    <!-- Grid Charts Area -->
     <div class="charts-container" id="chartsArea"></div>
+    
+    <!-- Vimshottari Dasha Section -->
     <div id="dashaArea" class="dasha-section" style="display:none;">
-        <h3>Vimśottarī Daśā (Expanding to Prāṇa)</h3>
+        <h3 id="dashaHeader" class="text-primary fw-bold">വിംശോത്തരി ദശ (പ്രാണദശ വരെ)</h3>
         <div id="dashaContent"></div>
     </div>
     
-    <!-----------New Code   -->
-    <div class="text-center my-4">
-    <button type="button" class="btn btn-primary btn-lg shadow" data-bs-toggle="modal" data-bs-target="#vargaModal" onclick="updateVargaDisplay()">
-        Varga Analysis
-    </button>
-</div>
+    <!-- Modal Trigger -->
+    <div class="text-center my-5">
+        <button type="button" class="btn btn-varga" id="btnVargaModal" data-bs-toggle="modal" data-bs-target="#vargaModal" onclick="updateVargaDisplay()">
+            വർഗ്ഗ ചാർട്ട് വിശകലനം
+        </button>
+    </div>
 
-<div class="modal fade" id="vargaModal" tabindex="-1" aria-labelledby="vargaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header bg-dark text-white">
-                <h5 class="modal-title" id="vargaModalLabel">Divisional (Varga) Chart Analysis</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row mb-4">
-                    <div class="col-md-4 offset-md-4">
-                        <label for="vargaSelect" class="form-label fw-bold">Select Divisional Chart:</label>
-                        <select id="vargaSelect" class="form-select border-primary" onchange="updateVargaDisplay()">
-                            <option value="D1">D1 - Rashi (Birth Chart)</option>
-                            <option value="D7">D7 - Saptamsha (Children/Legacy)</option>
-                            <option value="D9" selected="">D9 - Navamsha (Strength/Spouse)</option>
-                            <option value="D10">D10 - Dashamsha (Career/Success)</option>
-                            <option value="D12">D12 - Dwadashamsha (Parents/Ancestry)</option>
-                            <option value="D30">D30 - Trimshamsha (Misfortunes/Character)</option>
-                        </select>
-                    </div>
+    <!-- Varga Modal -->
+    <div class="modal fade" id="vargaModal" tabindex="-1" aria-labelledby="vargaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header text-white">
+                    <h5 class="modal-title" id="vargaModalLabel">വർഗ്ഗ ചാർട്ട് വിശകലനം (Divisional Charts)</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
-                <div class="row align-items-start">
-                    <div id="vargaChartCol" class="col-lg-5 mb-4 d-flex justify-content-center">
-                        </div>
-                    
-                    <div class="col-lg-7">
-                        <div class="table-responsive">
-                            <table class="table table-hover table-bordered shadow-sm" id="vargaTable">
-                                <thead class="table-light text-center">
-                                    <tr>
-                                        <th>Body</th>
-                                        <th>Divisional Longitude</th>
-                                        <th>Sign</th>
-                                        <th>Nakshatra (Star)</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-center">
-                                    </tbody>
-                            </table>
+                <div class="modal-body p-4">
+                    <div class="row mb-4">
+                        <div class="col-md-6 offset-md-3">
+                            <label for="vargaSelect" class="form-label" id="lblSelectVarga">വർഗ്ഗ ചാർട്ട് തിരഞ്ഞെടുക്കുക:</label>
+                            <select id="vargaSelect" class="form-select border-primary" onchange="updateVargaDisplay()">
+                                <option value="D1">D1 - രാശി (Rashi / Birth Chart)</option>
+                                <option value="D7">D7 - സപ്താംശം (Saptamsha - സന്താനം)</option>
+                                <option value="D9" selected>D9 - നവാംശം (Navamsha - ആയുസ്സ്/കളത്രം)</option>
+                                <option value="D10">D10 - ദശാംശം (Dashamsha - തൊഴിൽ/കർമ്മം)</option>
+                                <option value="D12">D12 - ദ്വാദശാംശം (Dwadashamsha - മാതാപിതാക്കൾ)</option>
+                                <option value="D30">D30 - ത്രിംശാംശം (Trimshamsha - അരിഷ്ടതകൾ/ദോഷം)</option>
+                            </select>
                         </div>
                     </div>
+
+                    <div class="row align-items-center">
+                        <div id="vargaChartCol" class="col-lg-5 mb-4 d-flex justify-content-center"></div>
+                        <div class="col-lg-7">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-bordered shadow-sm fs-5" id="vargaTable">
+                                    <thead class="table-dark text-center">
+                                        <tr>
+                                            <th id="thVargaBody">ഗ്രഹം</th>
+                                            <th id="thVargaLong">വർഗ്ഗ സ്ഫുടം</th>
+                                            <th id="thVargaSign">രാശി</th>
+                                            <th id="thVargaNak">നക്ഷത്രം</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-center font-monospace fw-bold"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-secondary fs-5 px-4" id="btnModalClose" data-bs-dismiss="modal">അടയ്ക്കുക</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
-
-   <!----New Code -->
 
 </div>
 
-<script src="./SREE CHAKRA - The Real Chithra Ayanamsa Horoscope_files/bootstrap.bundle.min.js.download"></script>
+<footer class="pt-4 pb-3 mt-5 w-100">
+    <div class="container-fluid text-center">
+        <div class="row">
+            <div class="col-12">
+                <p class="mb-1 fw-bold fs-5 text-primary">© 2026 All Rights Reserved</p>
+                <p class="fs-6 text-secondary">
+                    Designed and Developed by <span class="text-primary fw-bold">Sreejith S Pillai</span>
+                </p>
+            </div>
+        </div>
+        <hr class="my-2">
+        <div class="row">
+            <div class="col-12">
+                <p class="text-muted fs-6 mb-0" id="footerPowered">
+                    വേദിക് ജ്യോതിഷ ഗണിത എഞ്ചിൻ | Powered by Swiss Ephemeris
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <script type="module">
 import SwissEph from "https://cdn.jsdelivr.net/gh/prolaxu/swisseph-wasm@main/src/swisseph.js";
-const swe = new SwissEph(); await swe.initSwissEph();
+const swe = new SwissEph(); 
+await swe.initSwissEph();
+
+let currentLang = 'ml';
+
+const I18N = {
+    ml: {
+        docTitle: "ശ്രീ ചക്ര - ചിത്രാ അയനാംശ ജാതകം",
+        langBtn: "English Version",
+        mainHeading: "ശ്രീ ചിത്രാ ജാതകം",
+        subHeading: "കൃത്യമായ ജാതക ഗണിതം: ക്രി.വ 1900 - 2100 വരെ",
+        cardTitle: "ജനന വിവരങ്ങൾ",
+        lblDate: "തീയതി (Date)",
+        lblTime: "സമയം (Time)",
+        lblTz: "ടൈംസോൺ (TZ)",
+        lblLon: "രേഖാംശം (Longitude - ഡിഗ്രി / മിനിറ്റ്)",
+        lblLat: "അക്ഷാംശം (Latitude - ഡിഗ്രി / മിനിറ്റ്)",
+        deg: "ഡിഗ്രി",
+        min: "മിനിറ്റ്",
+        btnCalc: "ജാതകം ഗണിക്കുക",
+        thBody: "ഗ്രഹം / ബിന്ദു",
+        thTropical: "സായന സ്ഫുടം (Sayana)",
+        thSidereal: "നിരയന സ്ഫുടം (Nirayana)",
+        dashaHeader: "വിംശോത്തരി ദശ (പ്രാണദശ വരെ)",
+        btnVargaModal: "വർഗ്ഗ ചാർട്ട് വിശകലനം",
+        vargaModalLabel: "വർഗ്ഗ ചാർട്ട് വിശകലനം (Divisional Charts)",
+        lblSelectVarga: "വർഗ്ഗ ചാർട്ട് തിരഞ്ഞെടുക്കുക:",
+        thVargaBody: "ഗ്രഹം",
+        thVargaLong: "വർഗ്ഗ സ്ഫുടം",
+        thVargaSign: "രാശി",
+        thVargaNak: "നക്ഷത്രം",
+        btnClose: "അടയ്ക്കുക",
+        footerPowered: "വേദിക് ജ്യോതിഷ ഗണിത എഞ്ചിൻ | Powered by Swiss Ephemeris",
+        alertCalcFirst: "ദയവായി ആദ്യം ജാതകം കണക്കുകൂട്ടുക!",
+        signs: ["മേടം", "ഇടവം", "മിഥുനം", "കർക്കിടകം", "ചിങ്ങം", "കന്നി", "തുലാം", "വൃശ്ചികം", "ധനു", "മകരം", "കുംഭം", "മീനം"],
+        planets: {
+            "Su": "സൂര്യൻ", "Mo": "ചന്ദ്രൻ", "Me": "ബുധൻ", "Ve": "ശുക്രൻ", 
+            "Ma": "ചൊവ്വ", "Ju": "വ്യാഴം", "Sa": "ശനി", "Ra": "രാഹു", "Ke": "കേതു", "Asc": "ലഗ്നം"
+        },
+        chartPlanets: {
+            "Su": "ര", "Mo": "ച", "Me": "ബു", "Ve": "ശു", 
+            "Ma": "കു", "Ju": "ഗു", "Sa": "മ", "Ra": "രാ", "Ke": "കേ", "Asc": "ല"
+        },
+        vargaTitles: {
+            "D1": "D1 - രാശി", "D7": "D7 - സപ്താംശം", "D9": "D9 - നവാംശം", 
+            "D10": "D10 - ദശാംശം", "D12": "D12 - ദ്വാദശാംശം", "D30": "D30 - ത്രിംശാംശം"
+        },
+        dashaLords: ["കേതു", "ശുക്രൻ", "സൂര്യൻ", "ചന്ദ്രൻ", "ചൊവ്വ", "രാഹു", "വ്യാഴം", "ശനി", "ബുധൻ"],
+        spicaName: "ചിത്തിര (Spica)",
+        ascName: "ലഗ്നം (Ascendant)",
+        ayanName: "അയനാംശം (Ayanamsa)",
+        nakshatras: [
+            "അശ്വതി", "ഭരണി", "കാർത്തിക", "രോഹിണി", "മകയിരം", "തിരുവാതിര", "പുണർതം", "പൂയം", "ആയില്യം",
+            "മകം", "പൂരം", "ഉത്രം", "അത്തം", "ചിത്തിര", "ചോതി", "വിശാഖം", "അനിഴം", "തൃക്കേട്ട",
+            "മൂലം", "പൂരാടം", "ഉത്രാടം", "തിരുവോണം", "അവിട്ടം", "ചതയം", "പൂരുരുട്ടാതി", "ഉത്രട്ടാതി", "രേവതി"
+        ]
+    },
+    en: {
+        docTitle: "SREE CHAKRA - The Real Chithra Ayanamsa Horoscope",
+        langBtn: "മലയാളം പതിപ്പ്",
+        mainHeading: "SREE CHITHRA JATHAKA",
+        subHeading: "Calculate Accurate Horoscope From AD 1900 - 2100",
+        cardTitle: "Birth Details",
+        lblDate: "Date",
+        lblTime: "Time",
+        lblTz: "Timezone (TZ)",
+        lblLon: "Longitude (Deg / Min)",
+        lblLat: "Latitude (Deg / Min)",
+        deg: "Deg",
+        min: "Min",
+        btnCalc: "Calculate Full Horoscope",
+        thBody: "Body",
+        thTropical: "Tropical (Sayana)",
+        thSidereal: "Sidereal (Nirayana)",
+        dashaHeader: "Vimśottarī Daśā (Expanding to Prāṇa)",
+        btnVargaModal: "Varga Analysis",
+        vargaModalLabel: "Divisional (Varga) Chart Analysis",
+        lblSelectVarga: "Select Divisional Chart:",
+        thVargaBody: "Body",
+        thVargaLong: "Divisional Longitude",
+        thVargaSign: "Sign",
+        thVargaNak: "Nakshatra (Star)",
+        btnClose: "Close",
+        footerPowered: "Vedic Astrology Calculation Engine | Powered by Swiss Ephemeris",
+        alertCalcFirst: "Please calculate the horoscope first!",
+        signs: ["Ar", "Ta", "Ge", "Cn", "Le", "Vi", "Li", "Sc", "Sg", "Cp", "Aq", "Pi"],
+        planets: {
+            "Su": "Sun", "Mo": "Moon", "Me": "Mercury", "Ve": "Venus", 
+            "Ma": "Mars", "Ju": "Jupiter", "Sa": "Saturn", "Ra": "Rahu", "Ke": "Ketu", "Asc": "Ascendant"
+        },
+        chartPlanets: {
+            "Su": "Su", "Mo": "Mo", "Me": "Me", "Ve": "Ve", 
+            "Ma": "Ma", "Ju": "Ju", "Sa": "Sa", "Ra": "Ra", "Ke": "Ke", "Asc": "Asc"
+        },
+        vargaTitles: {
+            "D1": "D1 Rashi", "D7": "D7 Saptamsha", "D9": "D9 Navamsha", 
+            "D10": "D10 Dashamsha", "D12": "D12 Dwadashamsha", "D30": "D30 Trimshamsha"
+        },
+        dashaLords: ["Ketu", "Venus", "Sun", "Moon", "Mars", "Rahu", "Jupiter", "Saturn", "Mercury"],
+        spicaName: "Chithra (Spica)",
+        ascName: "Ascendant",
+        ayanName: "Ayanamsa",
+        nakshatras: [
+            "Ashwini", "Bharani", "Krittika", "Rohini", "Mrigashira", "Ardra", "Punarvasu", "Pushya", "Ashlesha",
+            "Magha", "P.Phalguni", "U.Phalguni", "Hasta", "Chitra", "Swati", "Vishakha", "Anuradha", "Jyeshtha",
+            "Mula", "P.Ashadha", "U.Ashadha", "Shravana", "Dhanishta", "Shatabhisha", "P.Bhadra", "U.Bhadra", "Revati"
+        ]
+    }
+};
+
+window.toggleLanguage = () => {
+    currentLang = (currentLang === 'ml') ? 'en' : 'ml';
+    applyStaticLanguage();
+    if (lastCalcResults) {
+        window.mainCalculation();
+        const vModal = document.getElementById('vargaModal');
+        if (vModal.classList.contains('show')) {
+            window.updateVargaDisplay();
+        }
+    }
+};
+
+function applyStaticLanguage() {
+    const l = I18N[currentLang];
+    document.title = l.docTitle;
+    document.getElementById("langToggleBtn").innerText = l.langBtn;
+    document.getElementById("mainHeading").innerText = l.mainHeading;
+    document.getElementById("subHeading").innerText = l.subHeading;
+    document.getElementById("cardTitle").innerText = l.cardTitle;
+    document.getElementById("lblDate").innerText = l.lblDate;
+    document.getElementById("lblTime").innerText = l.lblTime;
+    document.getElementById("lblTz").innerText = l.lblTz;
+    document.getElementById("lblLon").innerText = l.lblLon;
+    document.getElementById("lblLat").innerText = l.lblLat;
+    document.getElementById("lblLonDeg").innerText = l.deg;
+    document.getElementById("lblLonMin").innerText = l.min;
+    document.getElementById("lblLatDeg").innerText = l.deg;
+    document.getElementById("lblLatMin").innerText = l.min;
+    document.getElementById("btnCalculate").innerText = l.btnCalc;
+    document.getElementById("thBody").innerText = l.thBody;
+    document.getElementById("thTropical").innerText = l.thTropical;
+    document.getElementById("thSidereal").innerText = l.thSidereal;
+    document.getElementById("dashaHeader").innerText = l.dashaHeader;
+    document.getElementById("btnVargaModal").innerText = l.btnVargaModal;
+    document.getElementById("vargaModalLabel").innerText = l.vargaModalLabel;
+    document.getElementById("lblSelectVarga").innerText = l.lblSelectVarga;
+    document.getElementById("thVargaBody").innerText = l.thVargaBody;
+    document.getElementById("thVargaLong").innerText = l.thVargaLong;
+    document.getElementById("thVargaSign").innerText = l.thVargaSign;
+    document.getElementById("thVargaNak").innerText = l.thVargaNak;
+    document.getElementById("btnModalClose").innerText = l.btnClose;
+    document.getElementById("footerPowered").innerText = l.footerPowered;
+}
 
 const toDMS = x => {
     const absX = Math.abs(x);
@@ -321,21 +694,15 @@ const dec = (d, m) => {
     return deg < 0 ? (deg - min / 60) : (deg + min / 60);
 };
 
-/* ---------- THE 100% CORRECT ASCENDANT LOGIC ---------- */
 function getAscendant(jd, lat, lon) {
     const d2r = Math.PI / 180, r2d = 180 / Math.PI;
-    
-    // 1. Obliquity
     const T = (jd - 2451545) / 36525;
     const eps = (23 + 26/60 + 21.448/3600) - (46.815/3600) * T;
     
-    // 2. Local Sidereal Time (RAMC)
     let GMST = 280.46061837 + 360.98564736629 * (jd - 2451545);
     let ramc = ((GMST + lon) % 360 + 360) % 360;
     let LST = ramc * d2r;
     
-    // 3. Mathematical Ascendant (The Ecliptic-Horizon Intersection)
-    // Using the vector cross-product logic to ensure we always get the EAST point
     const x = -Math.sin(LST) * Math.cos(eps * d2r) - Math.tan(lat * d2r) * Math.sin(eps * d2r);
     const y = Math.cos(LST);
     
@@ -343,27 +710,12 @@ function getAscendant(jd, lat, lon) {
     return (asc + 360) % 360;
 }
 
-/**
- * SPICA CALCULATOR - HIGH PRECISION
- * Based on Linear Interpolation of Tropical Longitude (1900-2100)
- * and Constant Proper Motion for Sidereal Longitude.
- */
 const SpicaCalc = {
-    // Julian Date for Jan 1, 1980, 00:00 UTC
     jd1980: 2444239.5,
-    
-    // Sidereal Longitude of Spica at JD1980
     sidereal1980: 179.2269,
-    
-    // Spica's Sidereal Proper Motion (Degrees per Year)
-    // Note: This is usually very small. 0.05228 arcsec converted to degrees.
     siderealYearlyRate: 0.05335 / 3600,
-
-    // Fallback constants for dates outside 1900-2100
     tropicalYearlyRate: 0.01397,
     tropical1980: 203.55869722,
-
-    // Tropical Longitude Data (Jan 1st of each decade)
     tropicalSpicaData: {
         1900: 202.4497, 1910: 202.58,   1920: 202.7275, 1930: 202.8606,
         1940: 203.005,  1950: 203.1414, 1960: 203.2819, 1970: 203.4225,
@@ -371,57 +723,9 @@ const SpicaCalc = {
         2020: 204.1144, 2030: 204.2636, 2040: 204.3939, 2050: 204.5422,
         2060: 204.6742, 2070: 204.8197, 2080: 204.9553, 2090: 205.0969,
         2100: 205.2367
-    },
-
-    /**
-     * Converts a standard JavaScript Date to Julian Date
-     */
-    getJD: function(date) {
-        return (date.getTime() / 86400000) + 2440587.5;
-    },
-
-    /**
-     * Calculates Ayanamsa for a specific Julian Date
-     */
-    getAyan: function(jd) {
-        // Calculate the exact time difference in tropical years
-        const diffYears = (jd - this.jd1980) / 365.24219; // Using mean tropical year
-        const decimalYear = 1980 + diffYears;
-        
-        // 1. Calculate Sidereal Longitude (sL)
-        // Adjusting for proper motion over the time difference
-        const sL = this.sidereal1980 - (diffYears * this.siderealYearlyRate);
-        
-        let tL;
-
-        // 2. Calculate Tropical Longitude (tL) using Linear Interpolation
-        if (decimalYear >= 1900 && decimalYear <= 2100) {
-            const yearLower = Math.floor(decimalYear / 10) * 10;
-            const yearUpper = yearLower + 10;
-
-            if (decimalYear >= 2100) {
-                tL = this.tropicalSpicaData[2100];
-            } else {
-                const valLower = this.tropicalSpicaData[yearLower];
-                const valUpper = this.tropicalSpicaData[yearUpper];
-
-                // The 'fraction' captures the specific day (e.g., July 7th) 
-                // as a percentage of the 10-year data gap.
-                const fraction = (decimalYear - yearLower) / (yearUpper - yearLower);
-                tL = valLower + fraction * (valUpper - valLower);
-            }
-        } else {
-            // Fallback for dates far in the past or future
-            tL = this.tropical1980 + (diffYears * this.tropicalYearlyRate);
-        }
-
-        // Ayanamsa = Tropical Longitude - Sidereal Longitude
-        return tL - sL;
     }
 };
-/* ---------- SPICA CALCULATOR NEW ---------- */
 
-/* ---------- PARASHARI DIVISIONS ---------- */
 const Div = {
     D9: l => (Math.floor(l / 30) * 9 + Math.floor((l % 30) / (30/9))) % 12,
     D7: l => {
@@ -432,56 +736,53 @@ const Div = {
         const s = Math.floor(l / 30), p = Math.floor((l % 30) / 3);
         return s % 2 === 0 ? (s + p) % 12 : (s + 8 + p) % 12;
     },
-   
     D12: l => {
-    const degInSign = l % 30;
-    const signIndex = Math.floor(l / 30);
-    // Adding a tiny buffer ensures 5.0 / 2.5 is exactly 2, not 1.999999
-    const portion = Math.floor((degInSign + 0.0000001) / 2.5); 
-    return (signIndex + portion) % 12;
-},
-
-
+        const degInSign = l % 30;
+        const signIndex = Math.floor(l / 30);
+        const portion = Math.floor((degInSign + 0.0000001) / 2.5); 
+        return (signIndex + portion) % 12;
+    },
     D30: l => {
         const s = Math.floor(l/30), d = l % 30;
-        if (s % 2 === 0) { // Odd Sign indices
+        if (s % 2 === 0) { 
             if (d < 5) return 0; if (d < 10) return 10; if (d < 18) return 8; if (d < 25) return 2; return 6;
-        } else { // Even Sign indices
+        } else { 
             if (d < 5) return 1; if (d < 12) return 5; if (d < 20) return 11; if (d < 25) return 9; return 7;
         }
     }
 };
 
-/* ---------- 5-LEVEL DASHA ---------- */
-const LORDS = ["Ketu", "Venus", "Sun", "Moon", "Mars", "Rahu", "Jupiter", "Saturn", "Mercury"];
 const YEARS = [7, 20, 6, 10, 7, 18, 16, 19, 17];
 
-
 function buildDasha(moonPos, birthJD) {
-    const SIDEREAL_YEAR = 365.256363; // True Sidereal Year in days
+    const SIDEREAL_YEAR = 365.256363;
     const nakLen = 13.33333333;
     const lordIdx = Math.floor(moonPos / nakLen) % 9;
     const rem = 1 - ((moonPos % nakLen) / nakLen);
     
-    // Calculate start of the first Mahadasha based on true sidereal year
     let sJD = birthJD - ((1 - rem) * YEARS[lordIdx] * SIDEREAL_YEAR);
+    const lords = I18N[currentLang].dashaLords;
     
     const gen = (start, dur, level, idx) => {
         if (level > 4) return "";
         let h = "", cur = start;
-        const labels = ["MD", "AD", "PD", "SD", "PrD"];
+        const labels = currentLang === 'ml' 
+            ? ["മഹാദശ (MD)", "അന്തർദശ (AD)", "പ്രത്യന്തർദശ (PD)", "സൂക്ഷ്മദശ (SD)", "പ്രാണദശ (PrD)"]
+            : ["MD", "AD", "PD", "SD", "PrD"];
         
         for (let i = 0; i < 9; i++) {
             const cIdx = (idx + i) % 9;
-            // Dasha periods are fractions of the total 120-year cycle
-            // Formula: (Total Duration) * (Planet's Years / 120)
             const days = dur * (YEARS[cIdx] / 120);
             
-            // Convert Julian Day to Date object
-            const dStr = new Date((cur - 2440587.5) * 86400000).toLocaleDateString();
+            // Format strictly to DD-MM-YYYY
+            const dObj = new Date((cur - 2440587.5) * 86400000);
+            const dd = String(dObj.getDate()).padStart(2, '0');
+            const mm = String(dObj.getMonth() + 1).padStart(2, '0');
+            const yyyy = dObj.getFullYear();
+            const dStr = `${dd}-${mm}-${yyyy}`;
             
-            h += `<details style="margin-left: 10px;">
-                    <summary><b>${labels[level]}:</b> ${LORDS[cIdx]} (${dStr})</summary>
+            h += `<details>
+                    <summary><b>${labels[level]}:</b> ${lords[cIdx]} (${dStr})</summary>
                     ${gen(cur, days, level + 1, cIdx)}
                   </details>`;
             cur += days;
@@ -489,14 +790,16 @@ function buildDasha(moonPos, birthJD) {
         return h;
     };
 
-    // Total duration is now 120 Sidereal Years
     return gen(sJD, 120 * SIDEREAL_YEAR, 0, lordIdx);
 }
 
-const SIGNS = ["Ar", "Ta", "Ge", "Cn", "Le", "Vi", "Li", "Sc", "Sg", "Cp", "Aq", "Pi"];
 const SMAP = [11, 0, 1, 2, 10, null, null, 3, 9, null, null, 4, 8, 7, 6, 5];
 
 function drawChart(id, data, title) {
+    const signs = I18N[currentLang].signs;
+    const pNames = I18N[currentLang].chartPlanets;
+    const titleText = I18N[currentLang].vargaTitles[title] || title;
+
     const w = document.createElement("div"); 
     w.className = "chart-box";
     const g = document.createElement("div"); 
@@ -509,21 +812,20 @@ function drawChart(id, data, title) {
         
         if (s !== null) {
             c.className = "cell";
-            // Add the Sign Label
-            c.innerHTML = `<b>${SIGNS[s]}</b>`;
+            c.innerHTML = `<b>${signs[s]}</b>`;
             
-            // Add the Planets
             Object.keys(data).forEach(p => { 
                 if (data[p] === s) {
                     const span = document.createElement("span");
-                    span.innerText = p;
-                    if (p === 'Asc') span.className = "asc-label";
+                    span.innerText = pNames[p] || p;
+                    const planetClass = `planet-${p.toLowerCase()}`;
+                    span.className = (p === 'Asc') ? 'asc-label' : planetClass;
                     c.appendChild(span);
                 }
             });
         } else {
             c.className = "cell center";
-            c.innerHTML = `<div>${title}</div>`;
+            c.innerHTML = `<div>${titleText}</div>`;
         }
         g.appendChild(c);
     });
@@ -531,6 +833,8 @@ function drawChart(id, data, title) {
     w.appendChild(g); 
     document.getElementById(id).appendChild(w);
 }
+
+let lastCalcResults = null;
 
 window.mainCalculation = () => {
     const [y, m, d] = document.getElementById("dob").value.split("-").map(Number);
@@ -549,14 +853,10 @@ window.mainCalculation = () => {
 
     const jd = swe.julday(y, m, d, hh + mm/60 + ss/3600 - tz);
 
-    // --- SPICA CALCULATION SECTION (To define tL and sL) ---
     const diffYears = (jd - SpicaCalc.jd1980) / 365.2422;
     const decimalYear = 1980 + diffYears;
-    
-    // Calculate sL (Sidereal Spica)
     const sL = SpicaCalc.sidereal1980 - (diffYears * SpicaCalc.siderealYearlyRate);
     
-    // Calculate tL (Tropical Spica) using your interpolation table
     let tL;
     if (decimalYear >= 1900 && decimalYear <= 2100) {
         const yearLower = Math.floor(decimalYear / 10) * 10;
@@ -569,9 +869,7 @@ window.mainCalculation = () => {
         tL = SpicaCalc.tropical1980 + (diffYears * SpicaCalc.tropicalYearlyRate);
     }
 
-    // Now calculate Ayanamsa
     const ayan = tL - sL; 
-    // -------------------------------------------------------
 
     const PL = [["Su",0],["Mo",1],["Me",2],["Ve",3],["Ma",4],["Ju",5],["Sa",6],["Ra",10],["Ke",10]];
     const charts = { D1:{}, D9:{}, D30:{}, D10:{}, D7:{}, D12:{} };
@@ -579,27 +877,25 @@ window.mainCalculation = () => {
     tb.innerHTML = "";
     let mSid = 0;    
 
-    
+    const dict = I18N[currentLang];
+
     PL.forEach(([n, id]) => {
-        // Use flag 1024 (SEFLG_MEAN_NODE) for Rahu/Ketu, otherwise 0
         let flag = (n === "Ra" || n === "Ke") ? 1024 : 0;
-        
         let res = swe.calc_ut(jd, id, flag);
         let t = res[0];
 
-        // Ketu is always 180 degrees opposite to Rahu
         if (n === "Ke") t = (t + 180) % 360;
-
         const s = (t - ayan + 360) % 360;
 
-        tb.innerHTML += `<tr><td>${n}</td><td>${toDMS(t)}</td><td>${toDMS(s)}</td></tr>`;
+        const displayName = dict.planets[n] || n;
+        tb.innerHTML += `<tr><td>${displayName}</td><td>${toDMS(t)}</td><td>${toDMS(s)}</td></tr>`;
         
         charts.D1[n] = Math.floor(s/30); 
         charts.D9[n] = Div.D9(s); 
         charts.D7[n] = Div.D7(s); 
         charts.D10[n] = Div.D10(s); 
-        charts.D12[n] = Div.D12(s);
-        charts.D30[n] = Div.D30(s);
+        charts.D12[n] = Div.D12(s); 
+        charts.D30[n] = Div.D30(s); 
         
         if (n === "Mo") mSid = s;
     });
@@ -607,15 +903,9 @@ window.mainCalculation = () => {
     const ascT = getAscendant(jd, lat, lon);
     const ascS = (ascT - ayan + 360) % 360;
 
-    
-    
-    tb.innerHTML += `<tr style="background:#e8f8f5; font-weight:bold;"><td>Ascendant</td><td>${toDMS(ascT)}</td><td>${toDMS(ascS)}</td></tr>`;
-    // ADD SPICA ROW AS REQUESTED (Now tL and sL are defined)
-    tb.innerHTML += `<tr style="background:#e8f8f5; font-weight:bold;">
-        <td><b>Chithra</b></td><td>${toDMS(tL)}</td><td>${toDMS(sL)}</td></tr>`;
-    tb.innerHTML += `<tr><td>Ayanamsa</td><td>-</td><td>${toDMS(ayan)}</td></tr>`;
-
-    
+    tb.innerHTML += `<tr class="row-highlight"><td>${dict.ascName}</td><td>${toDMS(ascT)}</td><td>${toDMS(ascS)}</td></tr>`;
+    tb.innerHTML += `<tr class="row-highlight"><td><b>${dict.spicaName}</b></td><td>${toDMS(tL)}</td><td>${toDMS(sL)}</td></tr>`;
+    tb.innerHTML += `<tr style="font-weight: bold; background: #f8fafc;"><td>${dict.ayanName}</td><td>-</td><td>${toDMS(ayan)}</td></tr>`;
 
     ["D1","D9","D7","D10","D12","D30"].forEach(k => {
         if(k==="D1") charts[k].Asc = Math.floor(ascS/30);
@@ -635,35 +925,23 @@ window.mainCalculation = () => {
     lastCalcResults = { jd, ayan, lat, lon };
 };
 
-
-// Global variable to store the latest calculation results for Varga use
-let lastCalcResults = null;
-
-/* ---------- VARGA ANALYSIS LOGIC ---------- */
-const NAK_NAMES = ["Ashwini","Bharani","Krittika","Rohini","Mrigashira","Ardra","Punarvasu","Pushya","Ashlesha","Magha","P.Phalguni","U.Phalguni","Hasta","Chitra","Swati","Vishakha","Anuradha","Jyeshtha","Mula","P.Ashadha","U.Ashadha","Shravana","Dhanishta","Shatabhisha","P.Bhadra","U.Bhadra","Revati"];
-
-const getNak = (long) => NAK_NAMES[Math.floor((long % 360) / (360/27))];
+const getNak = (long) => I18N[currentLang].nakshatras[Math.floor((long % 360) / (360/27))];
 
 const getDivFullLong = (l, divFactor, vargaKey) => {
     if (divFactor === 1) return l;
     const arc = 30 / divFactor;
-    // Use your existing Div object
     const signIndex = Div[vargaKey](l);
     const portion = ((l % 30) % arc) / arc; 
     return (signIndex * 30) + (portion * 30);
 };
 
-// Update your mainCalculation to store the JD and Ayanamsa
-// Insert this line at the end of your window.mainCalculation:
-// lastCalcResults = { jd, ayan, lat, lon };
-
 window.updateVargaDisplay = () => {
-    // If user hasn't calculated the main chart yet, stop
     if (!lastCalcResults) {
-        alert("Please calculate the horoscope first!");
+        alert(I18N[currentLang].alertCalcFirst);
         return;
     }
 
+    const dict = I18N[currentLang];
     const varga = document.getElementById("vargaSelect").value;
     const divFactor = parseInt(varga.replace("D", "")) || 1;
     const { jd, ayan, lat, lon } = lastCalcResults;
@@ -677,9 +955,9 @@ window.updateVargaDisplay = () => {
 
     let chartData = {};
 
-    // 1. Process Planets
     PL.forEach(([n, id]) => {
-        let t = swe.calc_ut(jd, id, 0)[0];
+        let flag = (n === "Ra" || n === "Ke") ? 1024 : 0;
+        let t = swe.calc_ut(jd, id, flag)[0];
         if (n === "Ke") t = (t + 180) % 360;
         const s = (t - ayan + 360) % 360;
         
@@ -687,57 +965,47 @@ window.updateVargaDisplay = () => {
         const sIdx = Math.floor(dLong / 30);
         
         chartData[n] = sIdx;
-        vTableBody.innerHTML += `<tr><td><b>${n}</b></td><td>${toDMS(dLong % 30)}</td><td>${SIGNS[sIdx]}</td><td>${getNak(dLong)}</td></tr>`;
+        const displayName = dict.planets[n] || n;
+        vTableBody.innerHTML += `<tr><td><b>${displayName}</b></td><td>${toDMS(dLong % 30)}</td><td>${dict.signs[sIdx]}</td><td>${getNak(dLong)}</td></tr>`;
     });
 
-    // 2. Process Ascendant
     const ascS = (getAscendant(jd, lat, lon) - ayan + 360) % 360;
     const aLong = getDivFullLong(ascS, divFactor, varga);
     const aIdx = Math.floor(aLong / 30);
     chartData.Asc = aIdx;
-    vTableBody.innerHTML += `<tr class="table-info"><td><b>Asc</b></td><td>${toDMS(aLong % 30)}</td><td>${SIGNS[aIdx]}</td><td>${getNak(aLong)}</td></tr>`;
+    vTableBody.innerHTML += `<tr class="table-warning"><td><b>${dict.ascName}</b></td><td>${toDMS(aLong % 30)}</td><td>${dict.signs[aIdx]}</td><td>${getNak(aLong)}</td></tr>`;
 
-    // 3. Draw the Chart
-    const w = document.createElement("div"); w.className = "chart-box";
-    const g = document.createElement("div"); g.className = "chart";
+    const w = document.createElement("div"); 
+    w.className = "chart-box";
+    const g = document.createElement("div"); 
+    g.className = "chart";
+    
     SMAP.forEach((s, index) => {
         if ([6, 9, 10].includes(index)) return;
         const c = document.createElement("div");
         if (s !== null) {
             c.className = "cell";
-            c.innerHTML = `<b style="color:#aaa">${SIGNS[s]}</b>`;
+            c.innerHTML = `<b>${dict.signs[s]}</b>`;
             Object.keys(chartData).forEach(p => { 
-                if (chartData[p] === s) c.innerHTML += `<span class="${p==='Asc'?'asc-label':''}">${p}</span>`; 
+                if (chartData[p] === s) {
+                    const shortName = dict.chartPlanets[p] || p;
+                    const planetClass = `planet-${p.toLowerCase()}`;
+                    c.innerHTML += `<span class="${p==='Asc'?'asc-label':planetClass}">${shortName}</span>`; 
+                }
             });
         } else {
             c.className = "cell center";
-            c.innerHTML = `<div style="text-align:center; font-weight:bold; color:#1a2a6c;">${varga}</div>`;
+            const vTitle = dict.vargaTitles[varga] || varga;
+            c.innerHTML = `<div>${vTitle}</div>`;
         }
         g.appendChild(c);
     });
     w.appendChild(g);
     vChartContainer.appendChild(w);
 };
-</script>
-<footer class="text-white pt-4 pb-2 mt-5 w-100">
-    <div class="container-fluid text-center"> <div class="row">
-            <div class="col-12">
-                <p class="mb-1 text-primary">© 2025 All Rights Reserved</p>
-                <p class="small text-secondary">
-                    Designed and Developed by <span class="text-info fw-bold">Sreejith S Pillai</span>
-                </p>
-            </div>
-        </div>
-        <!--hr class="bg-secondary opacity-0"-->
-        <hr>
-        <div class="row">
-            <div class="col-12">
-                <p style="font-size: 0.75rem;" class="text-muted">
-                    Vedic Astrology Calculation Engine | Powered by Swiss Ephemeris
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
 
-</body></html>
+applyStaticLanguage();
+</script>
+
+</body>
+</html>
