@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0064)file:///G:/HORO/Ayanamsa%20Research/New%20folder/sreechakra.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <title>SREE CHAKRA - The Real Chithra Ayanamsa Horoscope </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./SREE CHAKRA - The Real Chithra Ayanamsa Horoscope_files/bootstrap.min.css" rel="stylesheet">
     <style>
         body { font-family: 'Segoe UI', Arial; 
         background:#f0f2f5; padding:20px; color: #333; 
@@ -190,7 +190,7 @@
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <label class="form-label fw-bold">Time</label>
-                    <input type="time" step="1" id="time" class="form-control" value="03:47:00">
+                    <input type="time" step="1" id="time" class="form-control" value="04:35:00">
                 </div>
                 <div class="col-md-4 col-sm-12">
                     <label class="form-label fw-bold">Timezone (TZ)</label>
@@ -259,7 +259,7 @@
                         <select id="vargaSelect" class="form-select border-primary" onchange="updateVargaDisplay()">
                             <option value="D1">D1 - Rashi (Birth Chart)</option>
                             <option value="D7">D7 - Saptamsha (Children/Legacy)</option>
-                            <option value="D9" selected>D9 - Navamsha (Strength/Spouse)</option>
+                            <option value="D9" selected="">D9 - Navamsha (Strength/Spouse)</option>
                             <option value="D10">D10 - Dashamsha (Career/Success)</option>
                             <option value="D12">D12 - Dwadashamsha (Parents/Ancestry)</option>
                             <option value="D30">D30 - Trimshamsha (Misfortunes/Character)</option>
@@ -302,7 +302,7 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./SREE CHAKRA - The Real Chithra Ayanamsa Horoscope_files/bootstrap.bundle.min.js.download"></script>
 <script type="module">
 import SwissEph from "https://cdn.jsdelivr.net/gh/prolaxu/swisseph-wasm@main/src/swisseph.js";
 const swe = new SwissEph(); await swe.initSwissEph();
@@ -343,16 +343,27 @@ function getAscendant(jd, lat, lon) {
     return (asc + 360) % 360;
 }
 
-/* ---------- SPICA CALCULATOR NEW ---------- */
+/**
+ * SPICA CALCULATOR - HIGH PRECISION
+ * Based on Linear Interpolation of Tropical Longitude (1900-2100)
+ * and Constant Proper Motion for Sidereal Longitude.
+ */
 const SpicaCalc = {
+    // Julian Date for Jan 1, 1980, 00:00 UTC
     jd1980: 2444239.5,
-    siderealYearlyRate: 0.05228 / 3600,
-    sidereal1980: 179.273788,
-    // Note: tropicalYearlyRate and tropical1980 are now only used for fallback
-    tropicalYearlyRate: 0.01397,
-    tropical1980: 203.558611,
+    
+    // Sidereal Longitude of Spica at JD1980
+    sidereal1980: 179.2269,
+    
+    // Spica's Sidereal Proper Motion (Degrees per Year)
+    // Note: This is usually very small. 0.05228 arcsec converted to degrees.
+    siderealYearlyRate: 0.05335 / 3600,
 
-    // Updated data from the second image
+    // Fallback constants for dates outside 1900-2100
+    tropicalYearlyRate: 0.01397,
+    tropical1980: 203.55869722,
+
+    // Tropical Longitude Data (Jan 1st of each decade)
     tropicalSpicaData: {
         1900: 202.4497, 1910: 202.58,   1920: 202.7275, 1930: 202.8606,
         1940: 203.005,  1950: 203.1414, 1960: 203.2819, 1970: 203.4225,
@@ -362,36 +373,49 @@ const SpicaCalc = {
         2100: 205.2367
     },
 
+    /**
+     * Converts a standard JavaScript Date to Julian Date
+     */
+    getJD: function(date) {
+        return (date.getTime() / 86400000) + 2440587.5;
+    },
+
+    /**
+     * Calculates Ayanamsa for a specific Julian Date
+     */
     getAyan: function(jd) {
-        const diffYears = (jd - this.jd1980) / 365.2422;
+        // Calculate the exact time difference in tropical years
+        const diffYears = (jd - this.jd1980) / 365.24219; // Using mean tropical year
         const decimalYear = 1980 + diffYears;
         
-        // Calculate Sidereal Longitude (using original rate-based logic)
-        const sL = this.sidereal1980 + (diffYears * this.siderealYearlyRate);
+        // 1. Calculate Sidereal Longitude (sL)
+        // Adjusting for proper motion over the time difference
+        const sL = this.sidereal1980 - (diffYears * this.siderealYearlyRate);
         
         let tL;
 
-        // Use Linear Interpolation for Tropical Longitude if within 1900-2100
+        // 2. Calculate Tropical Longitude (tL) using Linear Interpolation
         if (decimalYear >= 1900 && decimalYear <= 2100) {
             const yearLower = Math.floor(decimalYear / 10) * 10;
             const yearUpper = yearLower + 10;
 
-            // Handle boundary cases
-            if (decimalYear === 2100) {
+            if (decimalYear >= 2100) {
                 tL = this.tropicalSpicaData[2100];
             } else {
                 const valLower = this.tropicalSpicaData[yearLower];
                 const valUpper = this.tropicalSpicaData[yearUpper];
 
+                // The 'fraction' captures the specific day (e.g., July 7th) 
+                // as a percentage of the 10-year data gap.
                 const fraction = (decimalYear - yearLower) / (yearUpper - yearLower);
                 tL = valLower + fraction * (valUpper - valLower);
             }
         } else {
-            // Fallback for dates outside the table range
+            // Fallback for dates far in the past or future
             tL = this.tropical1980 + (diffYears * this.tropicalYearlyRate);
         }
 
-        // Return Ayanamsa (Tropical - Sidereal)
+        // Ayanamsa = Tropical Longitude - Sidereal Longitude
         return tL - sL;
     }
 };
@@ -432,26 +456,41 @@ const Div = {
 const LORDS = ["Ketu", "Venus", "Sun", "Moon", "Mars", "Rahu", "Jupiter", "Saturn", "Mercury"];
 const YEARS = [7, 20, 6, 10, 7, 18, 16, 19, 17];
 
+
 function buildDasha(moonPos, birthJD) {
+    const SIDEREAL_YEAR = 365.256363; // True Sidereal Year in days
     const nakLen = 13.33333333;
     const lordIdx = Math.floor(moonPos / nakLen) % 9;
     const rem = 1 - ((moonPos % nakLen) / nakLen);
-    let sJD = birthJD - ((1 - rem) * YEARS[lordIdx] * 365.25);
+    
+    // Calculate start of the first Mahadasha based on true sidereal year
+    let sJD = birthJD - ((1 - rem) * YEARS[lordIdx] * SIDEREAL_YEAR);
     
     const gen = (start, dur, level, idx) => {
         if (level > 4) return "";
         let h = "", cur = start;
         const labels = ["MD", "AD", "PD", "SD", "PrD"];
+        
         for (let i = 0; i < 9; i++) {
             const cIdx = (idx + i) % 9;
+            // Dasha periods are fractions of the total 120-year cycle
+            // Formula: (Total Duration) * (Planet's Years / 120)
             const days = dur * (YEARS[cIdx] / 120);
+            
+            // Convert Julian Day to Date object
             const dStr = new Date((cur - 2440587.5) * 86400000).toLocaleDateString();
-            h += `<details><summary>${labels[level]}: ${LORDS[cIdx]} (${dStr})</summary>${gen(cur, days, level+1, cIdx)}</details>`;
+            
+            h += `<details style="margin-left: 10px;">
+                    <summary><b>${labels[level]}:</b> ${LORDS[cIdx]} (${dStr})</summary>
+                    ${gen(cur, days, level + 1, cIdx)}
+                  </details>`;
             cur += days;
         }
         return h;
     };
-    return gen(sJD, 120 * 365.25, 0, lordIdx);
+
+    // Total duration is now 120 Sidereal Years
+    return gen(sJD, 120 * SIDEREAL_YEAR, 0, lordIdx);
 }
 
 const SIGNS = ["Ar", "Ta", "Ge", "Cn", "Le", "Vi", "Li", "Sc", "Sg", "Cp", "Aq", "Pi"];
@@ -515,7 +554,7 @@ window.mainCalculation = () => {
     const decimalYear = 1980 + diffYears;
     
     // Calculate sL (Sidereal Spica)
-    const sL = SpicaCalc.sidereal1980 + (diffYears * SpicaCalc.siderealYearlyRate);
+    const sL = SpicaCalc.sidereal1980 - (diffYears * SpicaCalc.siderealYearlyRate);
     
     // Calculate tL (Tropical Spica) using your interpolation table
     let tL;
@@ -534,14 +573,21 @@ window.mainCalculation = () => {
     const ayan = tL - sL; 
     // -------------------------------------------------------
 
-    const PL = [["Su",0],["Mo",1],["Me",2],["Ve",3],["Ma",4],["Ju",5],["Sa",6],["Ra",11],["Ke",11]];
+    const PL = [["Su",0],["Mo",1],["Me",2],["Ve",3],["Ma",4],["Ju",5],["Sa",6],["Ra",10],["Ke",10]];
     const charts = { D1:{}, D9:{}, D30:{}, D10:{}, D7:{}, D12:{} };
     const tb = document.querySelector("#posTable tbody"); 
     tb.innerHTML = "";
     let mSid = 0;    
 
+    
     PL.forEach(([n, id]) => {
-        let t = swe.calc_ut(jd, id, 0)[0];
+        // Use flag 1024 (SEFLG_MEAN_NODE) for Rahu/Ketu, otherwise 0
+        let flag = (n === "Ra" || n === "Ke") ? 1024 : 0;
+        
+        let res = swe.calc_ut(jd, id, flag);
+        let t = res[0];
+
+        // Ketu is always 180 degrees opposite to Rahu
         if (n === "Ke") t = (t + 180) % 360;
 
         const s = (t - ayan + 360) % 360;
@@ -622,7 +668,7 @@ window.updateVargaDisplay = () => {
     const divFactor = parseInt(varga.replace("D", "")) || 1;
     const { jd, ayan, lat, lon } = lastCalcResults;
 
-    const PL = [["Su",0],["Mo",1],["Me",2],["Ve",3],["Ma",4],["Ju",5],["Sa",6],["Ra",11],["Ke",11]];
+    const PL = [["Su",0],["Mo",1],["Me",2],["Ve",3],["Ma",4],["Ju",5],["Sa",6],["Ra",10],["Ke",10]];
     const vTableBody = document.querySelector("#vargaTable tbody");
     const vChartContainer = document.getElementById("vargaChartCol");
     
@@ -676,7 +722,7 @@ window.updateVargaDisplay = () => {
 <footer class="text-white pt-4 pb-2 mt-5 w-100">
     <div class="container-fluid text-center"> <div class="row">
             <div class="col-12">
-                <p class="mb-1 text-primary">&copy; 2025 All Rights Reserved</p>
+                <p class="mb-1 text-primary">© 2025 All Rights Reserved</p>
                 <p class="small text-secondary">
                     Designed and Developed by <span class="text-info fw-bold">Sreejith S Pillai</span>
                 </p>
@@ -693,5 +739,5 @@ window.updateVargaDisplay = () => {
         </div>
     </div>
 </footer>
-</body>
-</html>
+
+</body></html>
